@@ -13,7 +13,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "the network",
-    description: "a comprehensive analysis of user behavior and engagement patterns",
+    description: "a community for creators and businesses to connect and grow",
     previewImage: "/media/projects/project2/1.gif",
     images: [
       "/media/projects/project2/2.mp4"
@@ -22,7 +22,7 @@ const projects: Project[] = [
   },
   {
     title: "case study",
-    description: "a modern social networking platform built with next.js",
+    description: "a creator growth success story",
     previewImage: "/media/projects/project1/1.gif",
     images: [
       "/media/projects/project1/2.png",
@@ -32,7 +32,7 @@ const projects: Project[] = [
   },
   {
     title: "snapstart",
-    description: "a rapid prototyping tool for web applications",
+    description: "a program for creator opportunities",
     previewImage: "/media/projects/project3/1.gif",
     images: [
       "/media/projects/project3/1.gif"
