@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Force clean rebuild - v2
 const nextConfig = {
   images: {
     domains: ['localhost'],
@@ -20,6 +21,9 @@ const nextConfig = {
   },
   output: 'standalone',
   reactStrictMode: true,
+  generateBuildId: async () => {
+    return 'build-' + Date.now()
+  }
 }
 
 module.exports = nextConfig 
