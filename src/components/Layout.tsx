@@ -73,7 +73,7 @@ const Layout = ({ children }: LayoutProps) => {
                 </a>
 
                 <a 
-                  href="https://discord.gg/networkers"
+                  href="https://discord.gg/thenetwork"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"
