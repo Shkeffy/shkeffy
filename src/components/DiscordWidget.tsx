@@ -28,7 +28,7 @@ const DiscordWidget = () => {
         </div>
       </div>
       <a 
-        href="https://discord.gg/networkers"
+        href="https://discord.gg/thenetwork"
         target="_blank"
         rel="noopener noreferrer"
         className="w-full sm:w-auto"
