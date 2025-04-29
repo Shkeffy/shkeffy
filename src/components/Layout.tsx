@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Head>
         <title>shkeffy</title>
-        <meta name="description" content="A passionate creator crafting innovative content and solutions." />
+        <meta name="description" content="the official website for shkeffy" />
       </Head>
       <header className="py-6 border-b border-gray-800">
         <nav className="container px-4">
