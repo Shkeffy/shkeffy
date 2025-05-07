@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
+import type { MouseEvent } from 'react';
 import DiscordWidget from '../components/DiscordWidget';
 
 interface Project {
@@ -66,7 +67,7 @@ export default function Home() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group cursor-pointer"
-                onClick={() => setSelectedProject(project)}
+                onClick={(e: React.MouseEvent<HTMLDivElement>) => setSelectedProject(project)}
               >
                 <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900">
                   <Image
@@ -102,7 +103,7 @@ export default function Home() {
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="bg-gray-900 rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto mx-2 sm:mx-4"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
           >
             <div className="p-4 sm:p-6">
               <div className="flex justify-between items-start mb-4 sm:mb-6">

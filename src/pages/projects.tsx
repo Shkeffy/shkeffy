@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import type { MouseEvent } from 'react';
 
 interface Project {
   title: string;
@@ -38,6 +39,15 @@ const projects: Project[] = [
       "/media/projects/project3/1.gif"
     ],
     longDescription: "this is a program for creators to apply for the MSN Start and Snapchat Snapshow programs respectively."
+  },
+  {
+    title: "NewStudio",
+    description: "A chrome extension built by Blazer and I for YouTube",
+    previewImage: "/media/projects/project4/1.gif",
+    images: [
+      "/media/projects/project4/1.png"
+    ],
+    longDescription: "Customize your YouTube Studio with creator-first tools."
   }
 ];
 
@@ -130,7 +140,7 @@ export default function Projects() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               className="bg-gray-900/80 backdrop-blur-md rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-800/50"
-              onClick={e => e.stopPropagation()}
+              onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
             >
               <div className="p-6">
                 <div className="flex justify-between items-start mb-6">
@@ -187,7 +197,7 @@ export default function Projects() {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={(e) => {
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => {
                           e.stopPropagation();
                           previousImage();
                         }}
@@ -198,7 +208,7 @@ export default function Projects() {
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={(e) => {
+                        onClick={(e: MouseEvent<HTMLButtonElement>) => {
                           e.stopPropagation();
                           nextImage();
                         }}
@@ -212,7 +222,7 @@ export default function Projects() {
                             key={index}
                             whileHover={{ scale: 1.2 }}
                             whileTap={{ scale: 0.9 }}
-                            onClick={(e) => {
+                            onClick={(e: MouseEvent<HTMLButtonElement>) => {
                               e.stopPropagation();
                               setCurrentImageIndex(index);
                             }}
