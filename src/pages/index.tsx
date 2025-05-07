@@ -33,6 +33,13 @@ const projects: Project[] = [
     longDescription: "this is a program for creators to apply for the MSN Start and Snapchat Snapshow programs respectively.",
     previewImage: "/media/projects/project3/1.gif",
     images: ["/media/projects/project3/1.gif"]
+  },
+  {
+    title: "NewStudio",
+    description: "A chrome extension built by Blazer and I for YouTube",
+    longDescription: "Customize your YouTube Studio with creator-first tools.",
+    previewImage: "/media/projects/project4/1.gif",
+    images: ["/media/projects/project4/1.png"]
   }
 ];
 
