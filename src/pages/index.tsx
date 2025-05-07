@@ -38,8 +38,8 @@ const projects: Project[] = [
     title: "NewStudio",
     description: "A chrome extension built by Blazer and I for YouTube",
     longDescription: "Customize your YouTube Studio with creator-first tools.",
-    previewImage: "/media/projects/project4/1.gif",
-    images: ["/media/projects/project4/1.png"]
+    previewImage: "/media/projects/project4/1.png",
+    images: ["https://newstudio.app"]
   }
 ];
 
@@ -139,28 +139,72 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="space-y-6"
               >
-                {selectedProject.images.map((image, index) => (
-                  <div key={index} className="relative aspect-video rounded-lg overflow-hidden">
-                    {image.endsWith('.mp4') ? (
-                      <video
-                        src={image}
-                        controls
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <Image
-                        src={image}
-                        alt={`${selectedProject.title} image ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
-                    )}
+                {selectedProject.title === "NewStudio" ? (
+                  <div className="space-y-4">
+                    <iframe
+                      src="https://newstudio.app"
+                      width="100%"
+                      height="600"
+                      frameBorder="0"
+                      allowFullScreen
+                      className="rounded-lg"
+                      onError={(e) => {
+                        const iframe = e.target as HTMLIFrameElement;
+                        iframe.style.display = 'none';
+                        const container = iframe.parentElement;
+                        if (container) {
+                          const link = document.createElement('a');
+                          link.href = 'https://newstudio.app';
+                          link.target = '_blank';
+                          link.rel = 'noopener noreferrer';
+                          link.className = 'block w-full h-12 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center';
+                          link.textContent = 'Open NewStudio in New Tab';
+                          container.appendChild(link);
+                        }
+                      }}
+                    />
+                    <a 
+                      href="https://newstudio.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full max-w-xs mx-auto"
+                    >
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full h-12 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg hover:shadow-blue-500/20 transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="flex items-center space-x-2 relative z-10">
+                          <span className="text-sm font-medium">Open NewStudio in New Tab</span>
+                        </div>
+                      </motion.button>
+                    </a>
                   </div>
-                ))}
+                ) : (
+                  selectedProject.images.map((image, index) => (
+                    <div key={index} className="relative aspect-video rounded-lg overflow-hidden">
+                      {image.endsWith('.mp4') ? (
+                        <video
+                          src={image}
+                          controls
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <Image
+                          src={image}
+                          alt={`${selectedProject.title} image ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      )}
+                    </div>
+                  ))
+                )}
                 <p className="text-gray-300">{selectedProject.longDescription}</p>
                 {selectedProject.title === "the network" && (
                   <div className="mt-6">
